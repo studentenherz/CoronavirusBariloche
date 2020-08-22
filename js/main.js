@@ -2,28 +2,145 @@ google.charts.load('current', { packages: ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
-	var data = new google.visualization.DataTable();
-	data.addColumn('number', 'tiempo');
-	data.addColumn('number', 'activos');
-	data.addColumn('number', 'acumulados');
-	data.addColumn('number', 'muertes');
-	data.addColumn('number', 'recuperados');
-	data.addColumn('number', 'recuperados');
-	data.addColumn('number', 'recuperados');
-	data.addColumn('number', 'recuperados');
+	chartAccumDiv = document.getElementById('chartAccum');
+	chartDayDiv = document.getElementById('chartDay');
+	btnNewCases = document.getElementById('btn-new-cases');
+	btnNewDeaths = document.getElementById('btn-new-deaths');
+	btnNewRecovered = document.getElementById('btn-new-recovered');
+	btnLog = document.getElementById('btn-log-scale');
 
-	data.addRows(dataArray);
+	var dataAccum = new google.visualization.DataTable();
+	dataAccum.addColumn('number', 'Tiempo'); // 0
+	dataAccum.addColumn('number', 'Casos Acumulados'); // 2
+	dataAccum.addColumn('number', 'Recuperados Acumulados'); // 4
+	dataAccum.addColumn('number', 'Muertes Acumuladas'); // 6
+	dataAccum.addColumn('number', 'Casos Activos'); // 7
+	dataAccum.addRows(getColumns(dataArray, [0, 2, 4, 6, 7]));
+	var logScale = false;
 
-	var options = {
+	var dataDay = new google.visualization.DataTable();
+	dataDay.addColumn('number', 'Tiempo'); // 0
+	dataDay.addColumn('number', 'Casos Diarios'); // 1
+	dataDay.addColumn('number', 'Recuperados Diarios'); // 3
+	dataDay.addColumn('number', 'Muertes Diarias'); // 5
+	dataDay.addRows(getColumns(dataArray, [0, 1, 3, 5]));
+
+	var viewAccum = new google.visualization.DataView(dataAccum);
+	var viewDay = new google.visualization.DataView(dataDay);
+
+	var optionsAccum = {
+		series: {
+			0: {
+				visible: false,
+				visibleInLegend: true,
+			},
+			1: {
+				visible: false,
+			},
+		},
 		fontName: 'Computer Modern',
 		lineWidth: 1,
+		pointSize: 2,
+		legend: {
+			position: 'top',
+			alignment: 'center',
+			maxLines: 2,
+		},
+		chartArea: {
+			height: '80%',
+			width: '80%',
+			backgroundColor: {
+				stroke: 'black',
+				strokeWidth: 1,
+			},
+		},
+		vAxis: {
+			scaleType: 'linear',
+		},
+		axes: {
+			x: {
+				0: { side: 'bottom', label: 'my x axis' },
+				1: { side: 'top' },
+			},
+		},
+		// fontSize: 16,
 	};
 
-	var chart = new google.visualization.ScatterChart(
-		document.getElementById('chart')
-	);
+	var optionsDay = {
+		// fontSize: 16,
+		fontName: 'Computer Modern',
+		lineWidth: 1,
+		pointSize: 2,
+		legend: {
+			position: 'none',
+		},
+		chartArea: {
+			height: '80%',
+			width: '80%',
+			backgroundColor: {
+				stroke: 'black',
+				strokeWidth: 1,
+			},
+		},
+		bar: {
+			groupWidth: '70%',
+		},
+	};
 
-	chart.draw(data, options);
+	// var chart = new google.visualization.ScatterChart(chartDiv);
+	var chartAccum = new google.visualization.ScatterChart(chartAccumDiv);
+	var chartDay = new google.visualization.ColumnChart(chartDayDiv);
+
+	// view.setColumns([0, 2, 4, 6, 7]);
+	viewDay.setColumns([0, 1]);
+
+	chartAccum.draw(viewAccum, optionsAccum);
+	chartDay.draw(viewDay, optionsDay);
+
+	btnLog.onclick = evt => {
+		if (optionsAccum.vAxis.scaleType == 'log')
+			optionsAccum.vAxis.scaleType = 'linear';
+		else optionsAccum.vAxis.scaleType = 'log';
+
+		chartAccum.draw(viewAccum, optionsAccum);
+	};
+
+	btnNewCases.onclick = evt => {
+		viewDay.setColumns([0, 1]);
+		chartDay.draw(viewDay, optionsDay);
+	};
+
+	btnNewRecovered.onclick = evt => {
+		viewDay.setColumns([0, 2]);
+		chartDay.draw(viewDay, optionsDay);
+	};
+
+	btnNewDeaths.onclick = evt => {
+		viewDay.setColumns([0, 3]);
+		chartDay.draw(viewDay, optionsDay);
+	};
+
+	window.addEventListener('resize', evt => {
+		chartAccum.draw(viewAccum, optionsAccum);
+		chartDay.draw(viewDay, optionsDay);
+	});
+
+	google.visualization.events.addListener(chartAccum, 'select', function () {
+		var sel = chartAccum.getSelection();
+		console.log(sel);
+	});
+}
+
+function getColumns(data, cols) {
+	var newData = [];
+	for (var i = 0; i < data.length; ++i) {
+		var newRow = [];
+		for (var j = 0; j < cols.length; ++j) {
+			newRow.push(data[i][cols[j]]);
+		}
+		newData.push(newRow);
+	}
+	return newData;
 }
 
 const dataArray = [
@@ -158,4 +275,14 @@ const dataArray = [
 	[128, 4, 1020, 24, 537, 0, 18, 468],
 	[129, 12, 1032, 24, 561, 0, 18, 456],
 	[130, 30, 1062, 28, 589, 1, 19, 457],
+	[131, 52, 1108, 38, 618, 0, 19, 472],
+	[132, 55, 1163, 60, 678, 0, 19, 467],
+	[133, 37, 1201, 82, 760, 0, 19, 422],
+	[134, 21, 1222, 25, 785, 4, 23, 414],
+	[135, 12, 1234, 48, 833, 0, 23, 378],
+	[136, 19, 1253, 20, 853, 1, 24, 376],
+	[137, 29, 1282, 8, 861, 1, 25, 396],
+	[138, 32, 1314, 30, 891, 2, 27, 396],
+	[139, 21, 1335, 31, 922, 0, 27, 386],
+	[140, 32, 1367, 14, 936, 0, 27, 404],
 ];
