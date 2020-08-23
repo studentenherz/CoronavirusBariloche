@@ -102,7 +102,7 @@ function drawChart() {
 		legend: {
 			position: 'top',
 			alignment: 'center',
-			maxLines: 4,
+			maxLines: 2,
 		},
 		chartArea: {
 			top: 50,
@@ -160,9 +160,13 @@ function drawChart() {
 	chartDay.draw(viewDay, optionsDay);
 
 	btnLog.onclick = evt => {
-		if (optionsAccum.vAxis.scaleType == 'log')
+		if (optionsAccum.vAxis.scaleType == 'log') {
 			optionsAccum.vAxis.scaleType = 'linear';
-		else optionsAccum.vAxis.scaleType = 'log';
+			evt.target.innerHTML = 'ver escala logarítmica';
+		} else {
+			optionsAccum.vAxis.scaleType = 'log';
+			evt.target.innerHTML = 'ver escala lineal';
+		}
 
 		chartAccum.draw(viewAccum, optionsAccum);
 	};
@@ -218,8 +222,6 @@ function drawChart() {
 		}
 	}
 
-	// console.log(visibleCols);
-
 	viewDay.setColumns(visibleCols);
 	chartDay.draw(viewDay, optionsDay);
 
@@ -256,6 +258,22 @@ function drawChart() {
 			}
 		}
 	});
+
+	function changeChartArea(mQuery) {
+		if (mQuery.matches) {
+			optionsAccum.chartArea.height = '65%';
+			optionsDay.chartArea.height = '65%';
+		} else {
+			optionsAccum.chartArea.height = '80%';
+			optionsDay.chartArea.height = '80%';
+		}
+		chartAccum.draw(viewAccum, optionsAccum);
+		chartDay.draw(viewDay, optionsDay);
+	}
+
+	var mQuery = window.matchMedia('(max-width : 800px)');
+	changeChartArea(mQuery);
+	mQuery.addListener(changeChartArea);
 }
 
 /* 

@@ -1,24 +1,37 @@
+.chart-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 50px;
+	// justify-content: space-between;
+}
+
 .chart {
-	position: relative;
-	left: 50%;
-	transform: translateX(-50%);
-	height: 80vh;
 	width: 60vw;
-	max-width: 800px;
-	max-height: 500px;
+	height: 80vh;
+	min-width: 800px;
+	box-shadow: #e4e4e4 5px 5px 10px;
 }
 
 button {
+	width: fit-content;
+	border: none;
+	border-radius: 0 0 15px 15px;
+	padding: 5px 10px;
+	background-color: white;
+	box-shadow: #e4e4e4 5px 5px 10px;
 	cursor: pointer;
+	transition: all ease-in-out 0.3s;
 }
 
-.chart-container {
-	background-color: #f5f5f5;
+button:hover {
+	box-shadow: #818181 5px 5px 10px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
 	.chart {
 		width: 95vw;
 		height: 200px;
+		min-width: 100px;
 	}
 }

@@ -1,7 +1,9 @@
-.chart { position: relative; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); height: 80vh; width: 60vw; max-width: 800px; max-height: 500px; }
+.chart-container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin: 50px; }
 
-button { cursor: pointer; }
+.chart { width: 60vw; height: 80vh; min-width: 800px; -webkit-box-shadow: #e4e4e4 5px 5px 10px; box-shadow: #e4e4e4 5px 5px 10px; }
 
-.chart-container { background-color: #f5f5f5; }
+button { width: -webkit-fit-content; width: -moz-fit-content; width: fit-content; border: none; border-radius: 0 0 15px 15px; padding: 5px 10px; background-color: white; -webkit-box-shadow: #e4e4e4 5px 5px 10px; box-shadow: #e4e4e4 5px 5px 10px; cursor: pointer; -webkit-transition: all ease-in-out 0.3s; transition: all ease-in-out 0.3s; }
 
-@media (max-width: 600px) { .chart { width: 95vw; height: 200px; } }
+button:hover { -webkit-box-shadow: #818181 5px 5px 10px; box-shadow: #818181 5px 5px 10px; }
+
+@media (max-width: 800px) { .chart { width: 95vw; height: 200px; min-width: 100px; } }
