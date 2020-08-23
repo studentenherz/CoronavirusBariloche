@@ -28,25 +28,37 @@ function drawChart() {
 	var viewAccum = new google.visualization.DataView(dataAccum);
 	var viewDay = new google.visualization.DataView(dataDay);
 
+	var nullFunc = (data, col) => {
+		return null;
+	};
+
+	seriesAccum = [
+		null,
+		{ visible: true, label: 'Casos Acumulados', type: 'number' },
+		{ visible: true, label: 'Recuperados Acumulados', type: 'number' },
+		{ visible: true, label: 'Muertes Acumuladas', type: 'number' },
+		{ visible: true, label: 'Casos Activos', type: 'number' },
+	];
+
+	seriesDay = [
+		null,
+		{ visible: true, label: 'Casos Diarios', type: 'number' },
+		{ visible: false, label: 'Recuperados Diarios', type: 'number' },
+		{ visible: false, label: 'Muertes Diarias', type: 'number' },
+	];
+
 	var optionsAccum = {
-		series: {
-			0: {
-				visible: false,
-				visibleInLegend: true,
-			},
-			1: {
-				visible: false,
-			},
-		},
+		series: seriesAccum,
 		fontName: 'Computer Modern',
 		lineWidth: 1,
 		pointSize: 2,
 		legend: {
 			position: 'top',
 			alignment: 'center',
-			maxLines: 2,
+			maxLines: 4,
 		},
 		chartArea: {
+			top: 50,
 			height: '80%',
 			width: '80%',
 			backgroundColor: {
@@ -72,7 +84,8 @@ function drawChart() {
 		lineWidth: 1,
 		pointSize: 2,
 		legend: {
-			position: 'none',
+			position: 'top',
+			alignment: 'center',
 		},
 		chartArea: {
 			height: '80%',
@@ -83,16 +96,17 @@ function drawChart() {
 			},
 		},
 		bar: {
-			groupWidth: '70%',
+			groupWidth: '80%',
 		},
+		isStacked: true,
 	};
 
 	// var chart = new google.visualization.ScatterChart(chartDiv);
 	var chartAccum = new google.visualization.ScatterChart(chartAccumDiv);
 	var chartDay = new google.visualization.ColumnChart(chartDayDiv);
 
-	// view.setColumns([0, 2, 4, 6, 7]);
-	viewDay.setColumns([0, 1]);
+	// viewAccum.hideColumns([2, 3]);
+	// viewDay.setColumns([0, 1]);
 
 	chartAccum.draw(viewAccum, optionsAccum);
 	chartDay.draw(viewDay, optionsDay);
@@ -105,32 +119,88 @@ function drawChart() {
 		chartAccum.draw(viewAccum, optionsAccum);
 	};
 
-	btnNewCases.onclick = evt => {
-		viewDay.setColumns([0, 1]);
-		chartDay.draw(viewDay, optionsDay);
-	};
-
-	btnNewRecovered.onclick = evt => {
-		viewDay.setColumns([0, 2]);
-		chartDay.draw(viewDay, optionsDay);
-	};
-
-	btnNewDeaths.onclick = evt => {
-		viewDay.setColumns([0, 3]);
-		chartDay.draw(viewDay, optionsDay);
-	};
-
 	window.addEventListener('resize', evt => {
 		chartAccum.draw(viewAccum, optionsAccum);
 		chartDay.draw(viewDay, optionsDay);
 	});
 
+	/*
+	Toggle visibility in accumulated data chart
+	*/
 	google.visualization.events.addListener(chartAccum, 'select', function () {
 		var sel = chartAccum.getSelection();
-		console.log(sel);
+		if (sel[0].row == undefined) {
+			var col = sel[0].column;
+			seriesAccum[col].visible = !seriesAccum[col].visible;
+
+			var visibleCols = [0];
+			for (var i = 1; i < seriesAccum.length; i++) {
+				if (seriesAccum[i].visible) visibleCols.push(i);
+				else
+					visibleCols.push({
+						calc: nullFunc,
+						label: seriesAccum[i].label,
+						type: seriesAccum[i].type,
+					});
+			}
+
+			// console.log(visibleCols);
+
+			viewAccum.setColumns(visibleCols);
+			chartAccum.draw(viewAccum, optionsAccum);
+		}
+	});
+
+	var visibleCols = [0];
+	for (var i = 1; i < seriesDay.length; i++) {
+		if (seriesDay[i].visible) visibleCols.push(i);
+		else
+			visibleCols.push({
+				calc: nullFunc,
+				label: seriesDay[i].label,
+				type: seriesDay[i].type,
+			});
+	}
+
+	// console.log(visibleCols);
+
+	viewDay.setColumns(visibleCols);
+	chartDay.draw(viewDay, optionsDay);
+
+	/*
+	Toggle visibility in daily data chart
+	*/
+	google.visualization.events.addListener(chartDay, 'select', function () {
+		var sel = chartDay.getSelection();
+		if (sel[0].row == undefined) {
+			var col = sel[0].column;
+			if (!seriesDay[col].visible) {
+				for (var i = 1; i < seriesDay.length; i++)
+					seriesDay[i].visible = i == col ? true : false;
+
+				var visibleCols = [0];
+				for (var i = 1; i < seriesDay.length; i++) {
+					if (seriesDay[i].visible) visibleCols.push(i);
+					else
+						visibleCols.push({
+							calc: nullFunc,
+							label: seriesDay[i].label,
+							type: seriesDay[i].type,
+						});
+				}
+
+				// console.log(visibleCols);
+
+				viewDay.setColumns(visibleCols);
+				chartDay.draw(viewDay, optionsDay);
+			}
+		}
 	});
 }
 
+/* 
+Get only some columns
+*/
 function getColumns(data, cols) {
 	var newData = [];
 	for (var i = 0; i < data.length; ++i) {
