@@ -33,25 +33,72 @@ function drawChart() {
 	};
 
 	seriesAccum = [
-		null,
-		{ visible: true, label: 'Casos Acumulados', type: 'number' },
-		{ visible: true, label: 'Recuperados Acumulados', type: 'number' },
-		{ visible: true, label: 'Muertes Acumuladas', type: 'number' },
-		{ visible: true, label: 'Casos Activos', type: 'number' },
+		{
+			visible: true,
+			label: 'Casos Acumulados',
+			type: 'number',
+			color: '#3a79a6',
+			activeColor: '#3a79a6',
+			disabledColor: '#879aa8',
+		},
+		{
+			visible: true,
+			label: 'Recuperados Acumulados',
+			type: 'number',
+			color: '#17960f',
+			activeColor: '#17960f',
+			disabledColor: '#8dc29b',
+		},
+		{
+			visible: true,
+			label: 'Muertes Acumuladas',
+			type: 'number',
+			color: '#000000',
+			activeColor: '#000000',
+			disabledColor: '#6e6e6e',
+		},
+		{
+			visible: true,
+			label: 'Casos Activos',
+			type: 'number',
+			color: '#de1414',
+			activeColor: '#de1414',
+			disabledColor: '#c78181',
+		},
 	];
 
 	seriesDay = [
-		null,
-		{ visible: true, label: 'Casos Diarios', type: 'number' },
-		{ visible: false, label: 'Recuperados Diarios', type: 'number' },
-		{ visible: false, label: 'Muertes Diarias', type: 'number' },
+		{
+			visible: true,
+			label: 'Casos Diarios',
+			type: 'number',
+			color: '#de1414',
+			activeColor: '#de1414',
+			disabledColor: '#c78181',
+		},
+		{
+			visible: false,
+			label: 'Recuperados Diarios',
+			type: 'number',
+			color: '#17960f',
+			activeColor: '#17960f',
+			disabledColor: '#8dc29b',
+		},
+		{
+			visible: false,
+			label: 'Muertes Diarias',
+			type: 'number',
+			color: '#000000',
+			activeColor: '#000000',
+			disabledColor: '#6e6e6e',
+		},
 	];
 
 	var optionsAccum = {
 		series: seriesAccum,
 		fontName: 'Computer Modern',
 		lineWidth: 1,
-		pointSize: 2,
+		pointSize: 3,
 		legend: {
 			position: 'top',
 			alignment: 'center',
@@ -69,10 +116,10 @@ function drawChart() {
 		vAxis: {
 			scaleType: 'linear',
 		},
-		axes: {
-			x: {
-				0: { side: 'bottom', label: 'my x axis' },
-				1: { side: 'top' },
+		hAxis: {
+			viewWindow: {
+				min: 0,
+				max: 150,
 			},
 		},
 		// fontSize: 16,
@@ -80,6 +127,7 @@ function drawChart() {
 
 	var optionsDay = {
 		// fontSize: 16,
+		series: seriesDay,
 		fontName: 'Computer Modern',
 		lineWidth: 1,
 		pointSize: 2,
@@ -130,21 +178,25 @@ function drawChart() {
 	google.visualization.events.addListener(chartAccum, 'select', function () {
 		var sel = chartAccum.getSelection();
 		if (sel[0].row == undefined) {
-			var col = sel[0].column;
+			var col = sel[0].column - 1;
 			seriesAccum[col].visible = !seriesAccum[col].visible;
 
 			var visibleCols = [0];
-			for (var i = 1; i < seriesAccum.length; i++) {
-				if (seriesAccum[i].visible) visibleCols.push(i);
-				else
+			for (var i = 0; i < seriesAccum.length; i++) {
+				if (seriesAccum[i].visible) {
+					visibleCols.push(i + 1);
+					optionsAccum.series[i].color = seriesAccum[i].activeColor;
+				} else {
+					optionsAccum.series[i].color = seriesAccum[i].disabledColor;
 					visibleCols.push({
 						calc: nullFunc,
 						label: seriesAccum[i].label,
 						type: seriesAccum[i].type,
 					});
+				}
 			}
 
-			// console.log(visibleCols);
+			console.log(optionsAccum);
 
 			viewAccum.setColumns(visibleCols);
 			chartAccum.draw(viewAccum, optionsAccum);
@@ -152,14 +204,18 @@ function drawChart() {
 	});
 
 	var visibleCols = [0];
-	for (var i = 1; i < seriesDay.length; i++) {
-		if (seriesDay[i].visible) visibleCols.push(i);
-		else
+	for (var i = 0; i < seriesDay.length; i++) {
+		if (seriesDay[i].visible) {
+			visibleCols.push(i + 1);
+			optionsDay.series[i].color = seriesDay[i].activeColor;
+		} else {
+			optionsDay.series[i].color = seriesDay[i].disabledColor;
 			visibleCols.push({
 				calc: nullFunc,
 				label: seriesDay[i].label,
 				type: seriesDay[i].type,
 			});
+		}
 	}
 
 	// console.log(visibleCols);
@@ -173,20 +229,24 @@ function drawChart() {
 	google.visualization.events.addListener(chartDay, 'select', function () {
 		var sel = chartDay.getSelection();
 		if (sel[0].row == undefined) {
-			var col = sel[0].column;
+			var col = sel[0].column - 1;
 			if (!seriesDay[col].visible) {
-				for (var i = 1; i < seriesDay.length; i++)
+				for (var i = 0; i < seriesDay.length; i++)
 					seriesDay[i].visible = i == col ? true : false;
 
 				var visibleCols = [0];
-				for (var i = 1; i < seriesDay.length; i++) {
-					if (seriesDay[i].visible) visibleCols.push(i);
-					else
+				for (var i = 0; i < seriesDay.length; i++) {
+					if (seriesDay[i].visible) {
+						visibleCols.push(i + 1);
+						optionsDay.series[i].color = seriesDay[i].activeColor;
+					} else {
+						optionsDay.series[i].color = seriesDay[i].disabledColor;
 						visibleCols.push({
 							calc: nullFunc,
 							label: seriesDay[i].label,
 							type: seriesDay[i].type,
 						});
+					}
 				}
 
 				// console.log(visibleCols);
@@ -355,4 +415,6 @@ const dataArray = [
 	[138, 32, 1314, 30, 891, 2, 27, 396],
 	[139, 21, 1335, 31, 922, 0, 27, 386],
 	[140, 32, 1367, 14, 936, 0, 27, 404],
+	[141, 15, 1382, 11, 947, 0, 27, 408],
+	[142, 15, 1397, 21, 968, 0, 27, 402],
 ];
