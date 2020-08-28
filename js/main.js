@@ -12,5 +12,5 @@ window.onscroll = function () {
   infoStrip.style.boxShadow = `hsl(0, 0%, ${lightness}%) 5px 5px 10px`;
   
 
-  //  #e4e4e4 5px 5px 10px
+  //   hsl(34, 26%, 89%)
 }
