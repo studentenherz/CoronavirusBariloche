@@ -1,10 +1,62 @@
+body{
+	margin: 0;
+}
+
+#info-container{
+	margin: 0;
+	padding: 30px 0;
+	display: flex;
+	background-color: white;
+	flex-direction: row;
+	justify-content: space-around;
+	align-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	transition: all 0.4s ease;
+
+	> div{
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+
+		.number{
+			font-size: xx-large;
+			font-weight: bold;
+		}
+	}
+
+	#total-cases{
+		color: #3a79a6;
+	}
+
+	#active-cases{
+		color: #de1414;
+	}
+
+	#recovered-cases{
+		color: #17960f;
+	}
+
+	#death-cases{
+		color: black;
+	}
+}
+
+
 .chart-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	margin: 50px;
-	// justify-content: space-between;
+
+	h3{
+		font-size: 24px;
+	}
 }
+
 
 .chart {
 	width: 60vw;
@@ -28,10 +80,15 @@ button:hover {
 	box-shadow: #818181 5px 5px 10px;
 }
 
+#accum-plot{
+	margin-top: 180px;
+}
+
+
 @media (max-width: 800px) {
 	.chart {
 		width: 95vw;
-		height: 200px;
+		height: 250px;
 		min-width: 100px;
 	}
 }

@@ -5,29 +5,52 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<script src="js/main.js"></script>
+	<script src="js/plot.js"></script>
 	<link rel="stylesheet" href="css/master.css">
 	<title>Bariloche | Coronavirus Data</title>
 </head>
 
 <body>
 
+	
 	<div id="info-container">
+		<div>
 
+			<h4>Casos Totales</h4>
+			<div class="number" id="total-cases">1415</div>
+		</div>
+		<div>
+			
+			<h4>Activos</h4>
+			<div class="number" id="active-cases">384</div>
+		</div>
+
+		<div>
+
+			<h4>Recuperados</h4>
+			<div class="number" id="recovered-cases">1004</div>
+		</div>
+		<div>
+
+			<h4>Muertes</h4>
+			<div class="number" id="death-cases">27</div>
+		</div>
 	</div>
 
-	<div class="chart-container">
-		<h3>Casos Acumulados</h3>
-		<div class="chart" id="chartAccum"></div>
-		<button id="btn-log-scale">ver escala logarítimica</button>
-	</div>
+		<div class="chart-container" id="accum-plot">
+			<h3>Casos Acumulados</h3>
+			<div class="chart" id="chartAccum"></div>
+			<button id="btn-log-scale">Ver escala logarítimica</button>
+		</div>
+	
+	
+		<div class="chart-container">
+			<h3>Casos Diarios</h3>
+			<div class="chart" id="chartDay"></div>
+		</div>
 
 
-	<div class="chart-container">
-		<h3>Casos Diarios</h3>
-		<div class="chart" id="chartDay"></div>
-	</div>
 
 </body>
-
+<script src="js/main.js"></script>
 </html>
