@@ -7,48 +7,66 @@ body{
 	margin: 0;
 }
 
-#info-container{
-	margin: 0;
+header{
 	padding: 30px 0;
-	display: flex;
 	background-color: white;
-	flex-direction: row;
-	justify-content: space-around;
-	align-content: center;
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	z-index: 100;
 	transition: all 0.4s ease;
+	z-index: 100;
 
-	> div{
-		display: flex;
-		flex-direction: column;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	h1{
 		text-align: center;
+		font-size: 36px;
+		width: fit-content;
+		border-bottom: 2px solid black;
+	}
 
-		.number{
-			font-size: xx-large;
-			font-weight: bold;
+
+	#info-container{
+		width: 100%;
+		max-width: 910px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-content: center;
+	
+		> div{
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+	
+			.number{
+				font-size: xx-large;
+				font-weight: bold;
+			}
+		}
+	
+		#total-cases{
+			color: #3a79a6;
+		}
+	
+		#active-cases{
+			color: #de1414;
+		}
+	
+		#recovered-cases{
+			color: #17960f;
+		}
+	
+		#death-cases{
+			color: black;
 		}
 	}
-
-	#total-cases{
-		color: #3a79a6;
-	}
-
-	#active-cases{
-		color: #de1414;
-	}
-
-	#recovered-cases{
-		color: #17960f;
-	}
-
-	#death-cases{
-		color: black;
-	}
 }
+
+
 
 
 .chart-container {
@@ -86,7 +104,7 @@ button:hover {
 }
 
 #accum-plot{
-	margin-top: 180px;
+	margin-top: 280px;
 }
 
 

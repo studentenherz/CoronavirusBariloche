@@ -6,13 +6,43 @@ body {
   margin: 0;
 }
 
-#info-container {
-  margin: 0;
+header {
   padding: 30px 0;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  z-index: 100;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: white;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 36px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-bottom: 2px solid black;
+}
+
+header #info-container {
+  width: 100%;
+  max-width: 910px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -21,16 +51,9 @@ body {
       justify-content: space-around;
   -ms-flex-line-pack: center;
       align-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
 }
 
-#info-container > div {
+header #info-container > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -41,24 +64,24 @@ body {
   text-align: center;
 }
 
-#info-container > div .number {
+header #info-container > div .number {
   font-size: xx-large;
   font-weight: bold;
 }
 
-#info-container #total-cases {
+header #info-container #total-cases {
   color: #3a79a6;
 }
 
-#info-container #active-cases {
+header #info-container #active-cases {
   color: #de1414;
 }
 
-#info-container #recovered-cases {
+header #info-container #recovered-cases {
   color: #17960f;
 }
 
-#info-container #death-cases {
+header #info-container #death-cases {
   color: black;
 }
 
@@ -109,7 +132,7 @@ button:hover {
 }
 
 #accum-plot {
-  margin-top: 180px;
+  margin-top: 280px;
 }
 
 @media (max-width: 800px) {
