@@ -115,12 +115,20 @@ function drawChart() {
 		},
 		vAxis: {
 			scaleType: 'linear',
+			title: 'Número de personas',
+			titleTextStyle: {
+				italic: false
+			}
 		},
 		hAxis: {
 			viewWindow: {
 				min: 0,
 				max: 150,
 			},
+			title: 'Día desde el inicio del brote en Bariloche (04/03/20)',
+			titleTextStyle: {
+				italic: false
+			}
 		},
 		// fontSize: 16,
 	};
@@ -147,6 +155,18 @@ function drawChart() {
 			groupWidth: '80%',
 		},
 		isStacked: true,
+		vAxis: {
+			title: 'Número de personas',
+			titleTextStyle: {
+				italic: false
+			}
+		},
+		hAxis: {
+			title: 'Día desde el inicio del brote en Bariloche (04/03/20)',
+			titleTextStyle: {
+				italic: false
+			}
+		},
 	};
 
 	// var chart = new google.visualization.ScatterChart(chartDiv);
