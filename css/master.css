@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+  color: #6e6e6e;
 }
 
 header {
@@ -13,8 +14,6 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
   z-index: 100;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -34,7 +33,7 @@ header h1 {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #6e6e6e;
 }
 
 header #info-container {
@@ -62,6 +61,10 @@ header #info-container > div {
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: center;
+}
+
+header #info-container > div h4 {
+  font-size: large;
 }
 
 header #info-container > div .number {
@@ -141,4 +144,24 @@ button:hover {
     height: 250px;
     min-width: 100px;
   }
+  header #info-container > div h4 {
+    font-size: small;
+  }
+  header #info-container > div .number {
+    font-size: x-large;
+  }
+}
+
+footer {
+  padding: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
