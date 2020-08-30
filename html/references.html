@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../css/Computer Modern Sans/Sans/cmun-sans.css" />
+		<link rel="stylesheet" href="../css/master.css" />
+		<script>
+			window.onscroll = function () {
+				var offset = window.pageYOffset;
+				var lightness = 89;
+				var fontsize = 36;
+				if (offset <= 100) {
+					lightness = 100 - offset * 0.21;
+					fontsize = 36 - offset * 0.14;
+					document.getElementsByTagName('header')[0].style.padding = `${(100 - offset) * 0.3}px 0`;
+					document.querySelector('header h1').style.fontSize = `${fontsize}px`;
+				}
+
+				document.getElementsByTagName('header')[0].style.boxShadow = `hsl(0, 0%, ${lightness}%) 5px 5px 10px`;
+
+				//   hsl(34, 26%, 89%)
+			};
+		</script>
+		<title>Coronavirus Bariloche | Referecias</title>
+	</head>
+	<body>
+		<div class="maintainance">En mantenimiento, versión preliminar</div>
+		<header>
+			<h1>Coronavirus Bariloche</h1>
+			<h4>Fuentes y Referecias</h4>
+		</header>
+		<div class="refs">
+			<ul>
+				<li>
+					<div class="description">Diario El Cordillerano</div>
+					<a href="https://www.elcordillerano.com.ar/" target="_blank">https://www.elcordillerano.com.ar/</a>
+				</li>
+				<li>
+					<div class="description">Ministerio de Salud de Argentina</div>
+					<a href="http://datos.salud.gob.ar/dataset/covid-19-casos-registrados-en-la-republica-argentina" target="_blank">http://datos.salud.gob.ar/dataset/covid-19-casos-registrados-en-la-republica-argentina</a>
+				</li>
+			</ul>
+		</div>
+
+		<footer>
+			<p>&copy; Michel Romero 2020</p>
+			<p>Esta página no tiene vínculo con ninguna institución oficial. Mostramos una compilación de los datos reportados en <a href="html/references.html" target="_blank">distintos medios de comunicación</a> sobre el COVID-19 en San Carlos de Bariloche.</p>
+			<p>¡Toda sugerencia es bienvenida! Escríbanos a barilochecoronavirus@gmail.com</p>
+		</footer>
+	</body>
+</html>

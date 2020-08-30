@@ -7,6 +7,17 @@ $font-color: #6e6e6e;
 body {
 	margin: 0;
 	color: $font-color;
+	min-height: 100%;
+}
+
+.maintainance {
+	background-color: red;
+	width: 100%;
+	color: black;
+	text-align: center;
+	z-index: 100;
+	position: fixed;
+	top: 0;
 }
 
 header {
@@ -17,7 +28,7 @@ header {
 	left: 0;
 	width: 100%;
 	// transition: all 0.4s ease;
-	z-index: 100;
+	z-index: 1;
 
 	display: flex;
 	flex-direction: column;
@@ -104,8 +115,28 @@ button:hover {
 	box-shadow: #818181 5px 5px 10px;
 }
 
-#accum-plot {
+#hint {
+	text-align: center;
+	padding: 0 30px;
+	margin-top: 300px;
+}
+
+.refs {
 	margin-top: 280px;
+	min-height: 40vh;
+
+	ul {
+		li {
+			padding: 30px 0;
+			.description {
+				font-size: x-large;
+			}
+
+			a {
+				// margin-left: 40px;
+			}
+		}
+	}
 }
 
 @media (max-width: 800px) {
@@ -113,6 +144,10 @@ button:hover {
 		width: 95vw;
 		height: 250px;
 		min-width: 100px;
+	}
+
+	#hint {
+		font-size: small;
 	}
 
 	header {
@@ -146,4 +181,14 @@ footer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	text-align: center;
+
+	p {
+		max-width: 700px;
+	}
+}
+
+a {
+	text-decoration: underline;
+	color: $font-color;
 }

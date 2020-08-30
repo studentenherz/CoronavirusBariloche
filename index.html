@@ -7,10 +7,11 @@
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		<script src="js/plot.js"></script>
 		<link rel="stylesheet" href="css/master.css" />
-		<title>Bariloche | Coronavirus Data</title>
+		<title>Coronavirus Bariloche | Data</title>
 	</head>
 
 	<body>
+		<div class="maintainance">En mantenimiento, versión preliminar</div>
 		<header>
 			<h1>Coronavirus Bariloche</h1>
 
@@ -39,6 +40,10 @@
 			</div>
 		</header>
 
+		<div id="hint">
+			<p>(Los gráficos son interactivos, puede habilitar o deshabilitar cada uno de los criterios pulsando en la leyenda.)</p>
+		</div>
+
 		<div class="chart-container" id="accum-plot">
 			<h3>Casos Acumulados</h3>
 			<div class="chart" id="chartAccum"></div>
@@ -51,8 +56,9 @@
 		</div>
 
 		<footer>
-			<p>Coronavirus Bariloche &copy; 2020</p>
-			<p>Esta página no tiene vínculo con el Gobierno de Río Negro o Bariloche. Es una complilación de los datos reportados en distintos medios de comunicación acerca de los casos de COVID-19 en San Carlos de Bariloche</p>
+			<p>&copy; Michel Romero 2020</p>
+			<p>Esta página no tiene vínculo con ninguna institución oficial. Mostramos una compilación de los datos reportados en <a href="html/references.html" target="_blank">distintos medios de comunicación</a> sobre el COVID-19 en San Carlos de Bariloche.</p>
+			<p>¡Toda sugerencia es bienvenida! Escríbanos a barilochecoronavirus@gmail.com</p>
 		</footer>
 	</body>
 	<script src="js/main.js"></script>

@@ -5,6 +5,17 @@
 body {
   margin: 0;
   color: #6e6e6e;
+  min-height: 100%;
+}
+
+.maintainance {
+  background-color: red;
+  width: 100%;
+  color: black;
+  text-align: center;
+  z-index: 100;
+  position: fixed;
+  top: 0;
 }
 
 header {
@@ -14,7 +25,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -134,8 +145,23 @@ button:hover {
           box-shadow: #818181 5px 5px 10px;
 }
 
-#accum-plot {
+#hint {
+  text-align: center;
+  padding: 0 30px;
+  margin-top: 300px;
+}
+
+.refs {
   margin-top: 280px;
+  min-height: 40vh;
+}
+
+.refs ul li {
+  padding: 30px 0;
+}
+
+.refs ul li .description {
+  font-size: x-large;
 }
 
 @media (max-width: 800px) {
@@ -143,6 +169,9 @@ button:hover {
     width: 95vw;
     height: 250px;
     min-width: 100px;
+  }
+  #hint {
+    font-size: small;
   }
   header #info-container > div h4 {
     font-size: small;
@@ -164,4 +193,14 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-align: center;
+}
+
+footer p {
+  max-width: 700px;
+}
+
+a {
+  text-decoration: underline;
+  color: #6e6e6e;
 }
