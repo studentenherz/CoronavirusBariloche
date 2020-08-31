@@ -204,6 +204,23 @@ footer p {
   max-width: 700px;
 }
 
+footer .media-share {
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 180px;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+footer .media-share a.fa {
+  text-decoration: none;
+  font-size: x-large;
+}
+
 a {
   text-decoration: underline;
   color: #6e6e6e;

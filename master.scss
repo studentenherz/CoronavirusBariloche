@@ -135,10 +135,6 @@ button:hover {
 			.description {
 				font-size: x-large;
 			}
-
-			a {
-				// margin-left: 40px;
-			}
 		}
 	}
 }
@@ -189,6 +185,21 @@ footer {
 
 	p {
 		max-width: 700px;
+	}
+
+	.media-share {
+		margin: 20px;
+		display: flex;
+		width: 180px;
+		align-content: center;
+		justify-content: space-around;
+
+		a {
+			&.fa {
+				text-decoration: none;
+				font-size: x-large;
+			}
+		}
 	}
 }
 
