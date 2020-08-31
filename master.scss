@@ -99,7 +99,7 @@ header {
 
 .chart {
 	width: 60vw;
-	height: 80vh;
+	height: 65vh;
 	min-width: 800px;
 	box-shadow: #e4e4e4 5px 5px 10px;
 }
@@ -142,7 +142,7 @@ button:hover {
 @media (max-width: 800px) {
 	.chart {
 		width: 95vw;
-		height: 250px;
+		height: 50vh;
 		min-width: 100px;
 	}
 
@@ -198,6 +198,23 @@ footer {
 			&.fa {
 				text-decoration: none;
 				font-size: x-large;
+				transition: all ease-in 0.1s;
+				border: none;
+
+				&:hover {
+					&.fa-facebook {
+						color: #3b5998;
+					}
+					&.fa-twitter {
+						color: #00acee;
+					}
+					&.fa-telegram {
+						color: #0088cc;
+					}
+					&.fa-whatsapp {
+						color: #4fce5d;
+					}
+				}
 			}
 		}
 	}

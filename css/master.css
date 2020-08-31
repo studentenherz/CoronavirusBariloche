@@ -123,7 +123,7 @@ header #info-container #death-cases {
 
 .chart {
   width: 60vw;
-  height: 80vh;
+  height: 65vh;
   min-width: 800px;
   -webkit-box-shadow: #e4e4e4 5px 5px 10px;
           box-shadow: #e4e4e4 5px 5px 10px;
@@ -171,7 +171,7 @@ button:hover {
 @media (max-width: 800px) {
   .chart {
     width: 95vw;
-    height: 250px;
+    height: 50vh;
     min-width: 100px;
   }
   #hint {
@@ -219,6 +219,25 @@ footer .media-share {
 footer .media-share a.fa {
   text-decoration: none;
   font-size: x-large;
+  -webkit-transition: all ease-in 0.1s;
+  transition: all ease-in 0.1s;
+  border: none;
+}
+
+footer .media-share a.fa:hover.fa-facebook {
+  color: #3b5998;
+}
+
+footer .media-share a.fa:hover.fa-twitter {
+  color: #00acee;
+}
+
+footer .media-share a.fa:hover.fa-telegram {
+  color: #0088cc;
+}
+
+footer .media-share a.fa:hover.fa-whatsapp {
+  color: #4fce5d;
 }
 
 a {
