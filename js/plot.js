@@ -27,7 +27,7 @@ function drawChart() {
 	btnLog = document.getElementById('btn-log-scale');
 
 	var dataAccum = new google.visualization.DataTable();
-	dataAccum.addColumn('number', 'Tiempo'); // 0
+	dataAccum.addColumn('number', 'Día'); // 0
 	dataAccum.addColumn('number', 'Casos Totales'); // 3
 	dataAccum.addColumn('number', 'Recuperados'); // 5
 	dataAccum.addColumn('number', 'Muertes'); // 7
@@ -36,7 +36,7 @@ function drawChart() {
 	var logScale = false;
 
 	var dataDay = new google.visualization.DataTable();
-	dataDay.addColumn('number', 'Tiempo'); // 0
+	dataDay.addColumn('number', 'Día'); // 0
 	dataDay.addColumn('number', 'Nuevos'); // 2
 	dataDay.addColumn('number', 'Recuperados'); // 4
 	dataDay.addColumn('number', 'Muertes'); // 6
@@ -471,14 +471,15 @@ const dataArray = [
 	[137, "08 / 17 / 20", 29, 1282, 8, 861, 1, 25, 396],
 	[138, "08 / 18 / 20", 32, 1314, 30, 891, 2, 27, 396],
 	[139, "08 / 19 / 20", 21, 1335, 31, 922, 0, 27, 386],
-	[140, "08 / 20 / 20", 32, 1367, 14, 936, 0, 27, 404],
-	[141, "08 / 21 / 20", 15, 1382, 11, 947, 0, 27, 408],
-	[142, "08 / 22 / 20", 15, 1397, 21, 968, 0, 27, 402],
-	[143, "08 / 23 / 20", 0, 1397, 12, 980, 0, 27, 390],
-	[144, "08 / 24 / 20", 18, 1415, 24, 1004, 0, 27, 384],
+	[140, "08/20/20", 32, 1367, 14, 936, 0, 27, 404],
+	[141, "08/21/20", 15, 1382, 11, 947, 0, 27, 408],
+	[142, "08/22/20", 15, 1397, 21, 968, 0, 27, 402],
+	[143, "08/23/20", 0, 1397, 12, 980, 0, 27, 390],
+	[144, "08/24/20", 18, 1415, 24, 1004, 0, 27, 384],
 	[145, "08/25/20", 26, 1441, 32, 1036, 0, 27, 378],
 	[146, "08/26/20", 26, 1467, 31, 1067, 0, 27, 373],
-	[147, "08/27/20", 34, 1501, 23, 1046, 1, 28, 385],
-	[148, "08/28/20", 3, 1504, 123, 1198, 0, 28, 277],
-	[149, "08/29/20", 23, 1527, 62, 1260, 0, 28, 290],
+	[147, "08/27/20", 34, 1501, 23, 1090, 1, 28, 385],
+	[148, "08/28/20", 3, 1504, 47, 1137, 0, 28, 277],
+	[149, "08/29/20", 23, 1527, 62, 1200, 0, 28, 290],
+	[150, "08/30/20", 3, null, 10, 1210, 0, 28, 283]
 ];
