@@ -3,6 +3,15 @@ google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
 	var n = dataArray.length;
+
+	// make accumulated sums 
+	for (var i = 1; i < dataArray.length; ++i) {
+		dataArray[i][3] = dataArray[i - 1][3] + dataArray[i][2];
+		dataArray[i][5] = dataArray[i - 1][5] + dataArray[i][4];
+		dataArray[i][7] = dataArray[i - 1][7] + dataArray[i][6];
+		dataArray[i][8] = dataArray[i - 1][8] + dataArray[i][2] - dataArray[i][4] - dataArray[i][6];
+	}
+
 	document.getElementById("day").innerHTML = dataArray[n - 1][0];
 	document.getElementById("total-cases").innerHTML = dataArray[n - 1][3];
 	document.getElementById("active-cases").innerHTML = dataArray[n - 1][8];
@@ -330,7 +339,7 @@ const dataArray = [
 	[6, "04 / 08 / 20", 4, 10, 0, 0, 0, 0, 10],
 	[7, "04 / 09 / 20", 4, 14, 0, 0, 0, 0, 14],
 	[8, "04 / 10 / 20", 10, 24, 0, 0, 0, 0, 24],
-	[9, "04 / 11 / 20", , 14, 38, 0, 0, 0, 0, 38],
+	[9, "04 / 11 / 20", 14, 38, 0, 0, 0, 0, 38],
 	[10, "04 / 12 / 20", 0, 38, 0, 0, 0, 0, 38],
 	[11, "04 / 13 / 20", 1, 39, 0, 0, 0, 0, 39],
 	[12, "04 / 14 / 20", 10, 49, 0, 0, 0, 0, 49],
@@ -466,9 +475,9 @@ const dataArray = [
 	[142, "08 / 22 / 20", 15, 1397, 21, 968, 0, 27, 402],
 	[143, "08 / 23 / 20", 0, 1397, 12, 980, 0, 27, 390],
 	[144, "08 / 24 / 20", 18, 1415, 24, 1004, 0, 27, 384],
-	[145, "08 / 25 / 20", null, null, null, null, 0, 27, null],
-	[146, "08 / 26 / 20", null, null, null, null, 0, 27, null],
-	[147, "08 / 27 / 20", 34, 1458, 23, 1046, 1, 28, 385],
-	[148, "08 / 28 / 20", 3, 1503, 123, 1198, 0, 28, 277],
-	//[149, "08/29/2020", 23, null, 62, null, 0, 28, 290]
+	[145, "08/25/20", 26, 1441, 32, 1036, 0, 27, 378],
+	[146, "08/26/20", 26, 1467, 31, 1067, 0, 27, 373],
+	[147, "08/27/20", 34, 1501, 23, 1046, 1, 28, 385],
+	[148, "08/28/20", 3, 1504, 123, 1198, 0, 28, 277],
+	[149, "08/29/20", 23, 1527, 62, 1260, 0, 28, 290],
 ];
