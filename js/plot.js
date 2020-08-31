@@ -13,6 +13,7 @@ function drawChart() {
 	}
 
 	document.getElementById("day").innerHTML = dataArray[n - 1][0];
+	document.getElementById("date").innerHTML = `(${dataArray[n - 1][1]})`;
 	document.getElementById("total-cases").innerHTML = dataArray[n - 1][3];
 	document.getElementById("active-cases").innerHTML = dataArray[n - 1][8];
 	document.getElementById("recovered-cases").innerHTML = dataArray[n - 1][5];
@@ -27,18 +28,18 @@ function drawChart() {
 
 	var dataAccum = new google.visualization.DataTable();
 	dataAccum.addColumn('number', 'Tiempo'); // 0
-	dataAccum.addColumn('number', 'Casos Acumulados'); // 3
-	dataAccum.addColumn('number', 'Recuperados Acumulados'); // 5
-	dataAccum.addColumn('number', 'Muertes Acumuladas'); // 7
-	dataAccum.addColumn('number', 'Casos Activos'); // 8
+	dataAccum.addColumn('number', 'Casos Totales'); // 3
+	dataAccum.addColumn('number', 'Recuperados'); // 5
+	dataAccum.addColumn('number', 'Muertes'); // 7
+	dataAccum.addColumn('number', 'Activos'); // 8
 	dataAccum.addRows(getColumns(dataArray, [0, 3, 5, 7, 8]));
 	var logScale = false;
 
 	var dataDay = new google.visualization.DataTable();
 	dataDay.addColumn('number', 'Tiempo'); // 0
-	dataDay.addColumn('number', 'Casos Diarios'); // 2
-	dataDay.addColumn('number', 'Recuperados Diarios'); // 4
-	dataDay.addColumn('number', 'Muertes Diarias'); // 6
+	dataDay.addColumn('number', 'Nuevos'); // 2
+	dataDay.addColumn('number', 'Recuperados'); // 4
+	dataDay.addColumn('number', 'Muertes'); // 6
 	dataDay.addRows(getColumns(dataArray, [0, 2, 4, 6]));
 
 	var viewAccum = new google.visualization.DataView(dataAccum);
@@ -51,7 +52,7 @@ function drawChart() {
 	seriesAccum = [
 		{
 			visible: true,
-			label: 'Casos Acumulados',
+			label: 'Casos Totales',
 			type: 'number',
 			color: '#3a79a6',
 			activeColor: '#3a79a6',
@@ -59,7 +60,7 @@ function drawChart() {
 		},
 		{
 			visible: true,
-			label: 'Recuperados Acumulados',
+			label: 'Recuperados',
 			type: 'number',
 			color: '#17960f',
 			activeColor: '#17960f',
@@ -67,7 +68,7 @@ function drawChart() {
 		},
 		{
 			visible: true,
-			label: 'Muertes Acumuladas',
+			label: 'Muertes',
 			type: 'number',
 			color: '#000000',
 			activeColor: '#000000',
@@ -75,7 +76,7 @@ function drawChart() {
 		},
 		{
 			visible: true,
-			label: 'Casos Activos',
+			label: 'Activos',
 			type: 'number',
 			color: '#de1414',
 			activeColor: '#de1414',
@@ -86,7 +87,7 @@ function drawChart() {
 	seriesDay = [
 		{
 			visible: true,
-			label: 'Casos Diarios',
+			label: 'Nuevos',
 			type: 'number',
 			color: '#de1414',
 			activeColor: '#de1414',
@@ -94,7 +95,7 @@ function drawChart() {
 		},
 		{
 			visible: false,
-			label: 'Recuperados Diarios',
+			label: 'Recuperados',
 			type: 'number',
 			color: '#17960f',
 			activeColor: '#17960f',
@@ -102,7 +103,7 @@ function drawChart() {
 		},
 		{
 			visible: false,
-			label: 'Muertes Diarias',
+			label: 'Muertes',
 			type: 'number',
 			color: '#000000',
 			activeColor: '#000000',

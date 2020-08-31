@@ -83,6 +83,10 @@ header #info-container > div .number {
   font-weight: bold;
 }
 
+header #info-container #date {
+  font-size: small;
+}
+
 header #info-container #total-cases {
   color: #3a79a6;
 }
