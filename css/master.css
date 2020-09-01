@@ -156,6 +156,7 @@ button:hover {
 }
 
 .refs {
+  padding: 0 30px;
   margin-top: 280px;
   min-height: 40vh;
 }

@@ -5,12 +5,12 @@ function drawChart() {
 	var n = dataArray.length;
 
 	// make accumulated sums 
-	for (var i = 1; i < dataArray.length; ++i) {
-		dataArray[i][3] = dataArray[i - 1][3] + dataArray[i][2];
-		dataArray[i][5] = dataArray[i - 1][5] + dataArray[i][4];
-		dataArray[i][7] = dataArray[i - 1][7] + dataArray[i][6];
-		dataArray[i][8] = dataArray[i - 1][8] + dataArray[i][2] - dataArray[i][4] - dataArray[i][6];
-	}
+	// for (var i = 1; i < dataArray.length; ++i) {
+	// 	dataArray[i][3] = dataArray[i - 1][3] + dataArray[i][2];
+	// 	dataArray[i][5] = dataArray[i - 1][5] + dataArray[i][4];
+	// 	dataArray[i][7] = dataArray[i - 1][7] + dataArray[i][6];
+	// 	dataArray[i][8] = dataArray[i - 1][8] + dataArray[i][2] - dataArray[i][4] - dataArray[i][6];
+	// }
 
 	document.getElementById("day").innerHTML = dataArray[n - 1][0];
 	document.getElementById("date").innerHTML = `(${dataArray[n - 1][1]})`;
@@ -481,6 +481,6 @@ const dataArray = [
 	[147, "08/27/20", 34, 1501, 23, 1090, 1, 28, 385],
 	[148, "08/28/20", 3, 1504, 47, 1137, 0, 28, 277],
 	[149, "08/29/20", 23, 1527, 62, 1200, 0, 28, 290],
-	[150, "08/30/20", 3, null, 10, 1210, 0, 28, 283],
-	[151, "08/31/20", 37, null, 26, 1335, 1, 29, 237]
+	[150, "08/30/20", 3, 1530, 10, 1210, 0, 28, 283],
+	[151, "08/31/20", 37, 1567, 26, 1335, 1, 29, 237]
 ];
