@@ -140,6 +140,15 @@ button:hover {
 	}
 }
 
+.separator {
+	padding: 5px;
+	width: 100%;
+	margin-top: 30px;
+	height: 30px;
+	border-top: solid 1px $font-color;
+	// background-color: $font-color;
+}
+
 @media (max-width: 800px) {
 	.chart {
 		width: 95vw;
