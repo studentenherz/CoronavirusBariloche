@@ -1,107 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../css/Computer Modern Sans/Sans/cmun-sans.css" />
+		<link rel="stylesheet" href="../css/master.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<script>
+			window.onscroll = function () {
+				var offset = window.pageYOffset;
+				var lightness = 89;
+				var fontsize = 36;
+				if (offset <= 100) {
+					lightness = 100 - offset * 0.21;
+					fontsize = 36 - offset * 0.14;
+					document.getElementsByTagName('header')[0].style.padding = `${(100 - offset) * 0.3}px 0`;
+					document.querySelector('header h1').style.fontSize = `${fontsize}px`;
+				}
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="../css/Computer Modern Sans/Sans/cmun-sans.css" />
-	<link rel="stylesheet" href="../css/master.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-	<script>
-		window.onscroll = function () {
-			var offset = window.pageYOffset;
-			var lightness = 89;
-			var fontsize = 36;
-			if (offset <= 100) {
-				lightness = 100 - offset * 0.21;
-				fontsize = 36 - offset * 0.14;
-				document.getElementsByTagName('header')[0].style.padding = `${(100 - offset) * 0.3}px 0`;
-				document.querySelector('header h1').style.fontSize = `${fontsize}px`;
-			}
+				document.getElementsByTagName('header')[0].style.boxShadow = `hsl(0, 0%, ${lightness}%) 5px 5px 10px`;
 
-			document.getElementsByTagName('header')[0].style.boxShadow = `hsl(0, 0%, ${lightness}%) 5px 5px 10px`;
+				//   hsl(34, 26%, 89%)
+			};
+		</script>
+		<title>Coronavirus Bariloche | Referecias</title>
+	</head>
 
-			//   hsl(34, 26%, 89%)
-		};
-	</script>
-	<title>Coronavirus Bariloche | Referecias</title>
-</head>
+	<body>
+		<!-- <div class="maintainance">En mantenimiento, versión preliminar</div> -->
+		<header>
+			<h1>Coronavirus Bariloche</h1>
+			<h4>Fuentes y Referecias</h4>
+		</header>
+		<div class="refs">
+			<ul>
+				<div class="separator">Referecias generales</div>
+				<li>
+					<div class="description">Diario <span style="font-style: italic">El Cordillerano</span></div>
+					<a href="https://www.elcordillerano.com.ar/" target="_blank">https://www.elcordillerano.com.ar/</a>
+				</li>
+				<li>
+					<div class="description">Ministerio de Salud de Argentina</div>
+					<a href="http://datos.salud.gob.ar/dataset/covid-19-casos-registrados-en-la-republica-argentina" target="_blank">http://datos.salud.gob.ar/dataset/covid-19-casos-registrados-en-la-republica-argentina</a>
+				</li>
+				<div class="separator">Referencias específicas por día</div>
+				<li>
+					<div class="description"><span style="font-style: italic">El Cordillerano</span>: 31 de agosto de 2020</div>
+					<a href="https://www.elcordillerano.com.ar/noticias/2020/08/31/94612-en-la-ciudad-se-confirmaron-37-casos-nuevos-y-26-fueron-los-curados" target="_blank">https://www.elcordillerano.com.ar/noticias/2020/08/31/94612-en-la-ciudad-se-confirmaron-37-casos-nuevos-y-26-fueron-los-curados</a>
+				</li>
+				<li>
+					<div class="description"><span style="font-style: italic">El Cordillerano</span>: 1 de septiembre de 2020</div>
+					<a href="https://www.elcordillerano.com.ar/noticias/2020/09/01/94683-en-bariloche-se-detectaron-28-casos-nuevos-y-hubo-21-curados" target="_blank">https://www.elcordillerano.com.ar/noticias/2020/09/01/94683-en-bariloche-se-detectaron-28-casos-nuevos-y-hubo-21-curados</a>
+				</li>
+				<li>
+					<div class="description"><span style="font-style: italic">El Cordillerano</span>: 2 de septiembre de 2020</div>
+					<a href="https://www.elcordillerano.com.ar/noticias/2020/09/02/94728-en-bariloche-murio-un-hombre-de-102-anos-y-confirmaron-32-nuevos-diagnosticados" target="_blank">https://www.elcordillerano.com.ar/noticias/2020/09/02/94728-en-bariloche-murio-un-hombre-de-102-anos-y-confirmaron-32-nuevos-diagnosticados</a>
+				</li>
+				<li>
+					<div class="description"><span style="font-style: italic">El Cordillerano</span>: 3 de septiembre de 2020</div>
+					<a href="https://www.elcordillerano.com.ar/noticias/2020/09/03/94785-murieron-cinco-personas-en-rio-negro-y-hubo-172-nuevos-contagios" target="_blank">https://www.elcordillerano.com.ar/noticias/2020/09/03/94785-murieron-cinco-personas-en-rio-negro-y-hubo-172-nuevos-contagios</a>
+				</li>
+				<li>
+					<div class="description"><span style="font-style: italic">El Cordillerano</span>: 4 de septiembre de 2020</div>
+					<a href="https://www.elcordillerano.com.ar/noticias/2020/09/04/94836-hubo-24-altas-en-bariloche-pero-casi-el-doble-de-nuevos-contagios-confirmados" target="_blank">https://www.elcordillerano.com.ar/noticias/2020/09/04/94836-hubo-24-altas-en-bariloche-pero-casi-el-doble-de-nuevos-contagios-confirmados</a>
+				</li>
+				<li>
+					<div class="description"><span style="font-style: italic">El Cordillerano</span>: 5 de septiembre de 2020</div>
+					<a href="https://www.elcordillerano.com.ar/noticias/2020/09/05/94879-en-bariloche-se-confirmaron-31-nuevos-contagiados-de-coronavirus-quedan-266-activos" target="_blank">https://www.elcordillerano.com.ar/noticias/2020/09/05/94879-en-bariloche-se-confirmaron-31-nuevos-contagiados-de-coronavirus-quedan-266-activos</a>
+				</li>
+			</ul>
 
-<body>
-	<!-- <div class="maintainance">En mantenimiento, versión preliminar</div> -->
-	<header>
-		<h1>Coronavirus Bariloche</h1>
-		<h4>Fuentes y Referecias</h4>
-	</header>
-	<div class="refs">
-		<ul>
-			<div class="separator">Referecias generales</div>
-			<li>
-				<div class="description">Diario <span style="font-style: italic">El Cordillerano</span></div>
-				<a href="https://www.elcordillerano.com.ar/" target="_blank">https://www.elcordillerano.com.ar/</a>
-			</li>
-			<li>
-				<div class="description">Ministerio de Salud de Argentina</div>
-				<a href="http://datos.salud.gob.ar/dataset/covid-19-casos-registrados-en-la-republica-argentina"
-					target="_blank">http://datos.salud.gob.ar/dataset/covid-19-casos-registrados-en-la-republica-argentina</a>
-			</li>
-			<div class="separator">Referencias específicas por día</div>
-			<li>
-				<div class="description"><span style="font-style: italic">El Cordillerano</span>: 31 de agosto de 2020</div>
-				<a href="https://www.elcordillerano.com.ar/noticias/2020/08/31/94612-en-la-ciudad-se-confirmaron-37-casos-nuevos-y-26-fueron-los-curados"
-					target="_blank">https://www.elcordillerano.com.ar/noticias/2020/08/31/94612-en-la-ciudad-se-confirmaron-37-casos-nuevos-y-26-fueron-los-curados</a>
-			</li>
-			<li>
-				<div class="description"><span style="font-style: italic">El Cordillerano</span>: 1 de septiembre de 2020</div>
-				<a href="https://www.elcordillerano.com.ar/noticias/2020/09/01/94683-en-bariloche-se-detectaron-28-casos-nuevos-y-hubo-21-curados"
-					target="_blank">https://www.elcordillerano.com.ar/noticias/2020/09/01/94683-en-bariloche-se-detectaron-28-casos-nuevos-y-hubo-21-curados</a>
-			</li>
-			<li>
-				<div class="description"><span style="font-style: italic">El Cordillerano</span>: 2 de septiembre de 2020</div>
-				<a href="https://www.elcordillerano.com.ar/noticias/2020/09/02/94728-en-bariloche-murio-un-hombre-de-102-anos-y-confirmaron-32-nuevos-diagnosticados"
-					target="_blank">https://www.elcordillerano.com.ar/noticias/2020/09/02/94728-en-bariloche-murio-un-hombre-de-102-anos-y-confirmaron-32-nuevos-diagnosticados</a>
-			</li>
-			<li>
-				<div class="description"><span style="font-style: italic">El Cordillerano</span>: 3 de septiembre de 2020</div>
-				<a href="https://www.elcordillerano.com.ar/noticias/2020/09/03/94785-murieron-cinco-personas-en-rio-negro-y-hubo-172-nuevos-contagios"
-					target="_blank">https://www.elcordillerano.com.ar/noticias/2020/09/03/94785-murieron-cinco-personas-en-rio-negro-y-hubo-172-nuevos-contagios</a>
-			</li>
-			<li>
-				<div class="description"><span style="font-style: italic">El Cordillerano</span>: 4 de septiembre de 2020</div>
-				<a href="https://www.elcordillerano.com.ar/noticias/2020/09/04/94836-hubo-24-altas-en-bariloche-pero-casi-el-doble-de-nuevos-contagios-confirmados"
-					target="_blank">https://www.elcordillerano.com.ar/noticias/2020/09/04/94836-hubo-24-altas-en-bariloche-pero-casi-el-doble-de-nuevos-contagios-confirmados</a>
-			</li>
-		</ul>
-
-		<p>Los datos que figuran en los gráficos son los reportados en las noticias publicadas en <span
-				style="font-style: italic; font-size: large">El Cordillerano</span>. Puede haber casos que tengan otro desenlace
-			que los presentados en la página, así que se respetan los datos reportados.</p>
-	</div>
-
-	<footer>
-		<p>&copy; Michel Romero 2020</p>
-		<div class="media-share">
-			<a class="fa fa-facebook"
-				href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fstudentenherz.github.io%2FCoronavirusBariloche%2F"
-				target="_blank" rel="noopener noreferrer"></a>
-
-			<a class="fa fa-twitter"
-				href="https://twitter.com/intent/tweet?tw_p=tweetbutton&url=https://studentenherz.github.io/CoronavirusBariloche/&text=Mira los gráficos del coronavirus en Bariloche:"></a>
-
-			<a class="fa fa-telegram"
-				href="https://t.me/share/url?url=https://studentenherz.github.io/CoronavirusBariloche/&text=Mira los gráficos del coronavirus en Bariloche:"
-				target="_blank" rel="noopener noreferrer"></a>
-
-			<a class="fa fa-whatsapp"
-				href="whatsapp://send?text=Mira los gráficos del coronavirus en Bariloche: https://studentenherz.github.io/CoronavirusBariloche/"
-				data-action="share/whatsapp/share"></a>
+			<p>Los datos que figuran en los gráficos son los reportados en las noticias publicadas en <span style="font-style: italic; font-size: large">El Cordillerano</span>. Puede haber casos que tengan otro desenlace que los presentados en la página, así que se respetan los datos reportados.</p>
 		</div>
-		<p>Esta página no tiene vínculo con ninguna institución oficial. Mostramos una compilación de los datos reportados
-			en <a href="html/references.html">distintos medios de comunicación</a> sobre el COVID-19 en San Carlos de
-			Bariloche.</p>
-		<p>¡Toda sugerencia es bienvenida! Escríbanos a barilochecoronavirus@gmail.com</p>
-		<p>Colectores de datos: Samuel Martínez Alcalá, Daniel Miravet</p>
-	</footer>
-</body>
 
+		<footer>
+			<p>&copy; Michel Romero 2020</p>
+			<div class="media-share">
+				<a class="fa fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fstudentenherz.github.io%2FCoronavirusBariloche%2F" target="_blank" rel="noopener noreferrer"></a>
+
+				<a class="fa fa-twitter" href="https://twitter.com/intent/tweet?tw_p=tweetbutton&url=https://studentenherz.github.io/CoronavirusBariloche/&text=Mira los gráficos del coronavirus en Bariloche:"></a>
+
+				<a class="fa fa-telegram" href="https://t.me/share/url?url=https://studentenherz.github.io/CoronavirusBariloche/&text=Mira los gráficos del coronavirus en Bariloche:" target="_blank" rel="noopener noreferrer"></a>
+
+				<a class="fa fa-whatsapp" href="whatsapp://send?text=Mira los gráficos del coronavirus en Bariloche: https://studentenherz.github.io/CoronavirusBariloche/" data-action="share/whatsapp/share"></a>
+			</div>
+			<p>Esta página no tiene vínculo con ninguna institución oficial. Mostramos una compilación de los datos reportados en <a href="html/references.html">distintos medios de comunicación</a> sobre el COVID-19 en San Carlos de Bariloche.</p>
+			<p>¡Toda sugerencia es bienvenida! Escríbanos a barilochecoronavirus@gmail.com</p>
+			<p>Colectores de datos: Samuel Martínez Alcalá, Daniel Miravet</p>
+		</footer>
+	</body>
 </html>
