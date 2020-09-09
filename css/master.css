@@ -83,8 +83,8 @@ header #info-container > div .number {
   font-weight: bold;
 }
 
-header #info-container #date {
-  font-size: small;
+header #info-container #day {
+  font-size: 0.93rem;
 }
 
 header #info-container #total-cases {
