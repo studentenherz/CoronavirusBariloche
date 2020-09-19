@@ -8,13 +8,19 @@ function drawChart() {
 	for (var i = 1; i < dataArray.length; ++i) {
 		if (dataArray[i][3] == null)
 			dataArray[i][3] = dataArray[i - 1][3] + dataArray[i][2];
+		if (dataArray[i][5] == null)
+			dataArray[i][5] = dataArray[i - 1][5] + dataArray[i][4];
+
 		// dataArray[i][5] = dataArray[i - 1][5] + dataArray[i][4];
 		// dataArray[i][7] = dataArray[i - 1][7] + dataArray[i][6];
 		// dataArray[i][8] = dataArray[i - 1][8] + dataArray[i][2] - dataArray[i][4] - dataArray[i][6];
 	}
 
 	// document.getElementById('day').innerHTML = dataArray[n - 1][0];
-	document.getElementById('date').innerHTML = `${dataArray[n - 1][1].substring(0, 5)}`;
+	document.getElementById('date').innerHTML = `${dataArray[n - 1][1].substring(
+		0,
+		5
+	)}`;
 	document.getElementById('total-cases').innerHTML = dataArray[n - 1][3];
 	document.getElementById('active-cases').innerHTML = dataArray[n - 1][8];
 	document.getElementById('recovered-cases').innerHTML = dataArray[n - 1][5];
@@ -498,5 +504,6 @@ const dataArray = [
 	[165, '09/14/20', 52, null, 48, 1620, 0, 36, 483],
 	[166, '09/15/20', 145, null, 26, 1646, 4, 40, 598],
 	[167, '09/16/20', 55, null, 27, 1673, 3, 43, 623],
-	[168, '09/17/20', 62, 2401, 58, 1731, 0, 43, 627]
+	[168, '09/17/20', 62, 2401, 58, 1731, 0, 43, 627],
+	[169, '09/18/20', 61, 2462, 39, null, 4, 47, 645],
 ];
