@@ -10,6 +10,10 @@ function drawChart() {
 			dataArray[i][3] = dataArray[i - 1][3] + dataArray[i][2];
 		if (dataArray[i][5] == null)
 			dataArray[i][5] = dataArray[i - 1][5] + dataArray[i][4];
+		if (dataArray[i][7] == null)
+			dataArray[i][7] = dataArray[i - 1][7] + dataArray[i][6];
+		if (dataArray[i][8] == null)
+			dataArray[i][8] = dataArray[i - 1][8] + dataArray[i][2] - dataArray[i][4] - dataArray[i][6];
 
 		// dataArray[i][5] = dataArray[i - 1][5] + dataArray[i][4];
 		// dataArray[i][7] = dataArray[i - 1][7] + dataArray[i][6];
