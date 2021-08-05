@@ -1,98 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="stylesheet" href="css/Computer Modern Sans/Sans/cmun-sans.css" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<!-- Primary Meta Tags -->
-		<title>Coronavirus Bariloche | Data</title>
-		<meta name="title" content="Coronavirus Bariloche" />
-		<meta name="description" content="Compilación de gráficos y datos sobre coronavirus (COVID-19) en San Carlos de Bariloche." />
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="css/Computer Modern Sans/Sans/cmun-sans.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://studentenherz.github.io/CoronavirusBariloche/" />
-		<meta property="og:title" content="Coronavirus Bariloche" />
-		<meta property="og:description" content="Compilación de gráficos y datos sobre coronavirus (COVID-19) en San Carlos de Bariloche." />
-		<meta property="og:image" content="https://studentenherz.github.io/CoronavirusBariloche/images/preview.png" />
+	<!-- Primary Meta Tags -->
+	<title>Coronavirus Bariloche | Data</title>
+	<meta name="title" content="Coronavirus Bariloche" />
+	<meta name="description"
+		content="Compilación de gráficos y datos sobre coronavirus (COVID-19) en San Carlos de Bariloche." />
 
-		<!-- Twitter -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content="https://studentenherz.github.io/CoronavirusBariloche/" />
-		<meta property="twitter:title" content="Coronavirus Bariloche" />
-		<meta property="twitter:description" content="Compilación de gráficos y datos sobre coronavirus (COVID-19) en San Carlos de Bariloche." />
-		<meta property="twitter:image" content="https://studentenherz.github.io/CoronavirusBariloche/images/preview.png" />
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://studentenherz.github.io/CoronavirusBariloche/" />
+	<meta property="og:title" content="Coronavirus Bariloche" />
+	<meta property="og:description"
+		content="Compilación de gráficos y datos sobre coronavirus (COVID-19) en San Carlos de Bariloche." />
+	<meta property="og:image" content="https://studentenherz.github.io/CoronavirusBariloche/images/preview.png" />
 
-		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		<script src="js/plot.js"></script>
-		<link rel="stylesheet" href="css/master.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-	</head>
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="https://studentenherz.github.io/CoronavirusBariloche/" />
+	<meta property="twitter:title" content="Coronavirus Bariloche" />
+	<meta property="twitter:description"
+		content="Compilación de gráficos y datos sobre coronavirus (COVID-19) en San Carlos de Bariloche." />
+	<meta property="twitter:image" content="https://studentenherz.github.io/CoronavirusBariloche/images/preview.png" />
 
-	<body>
-		<!-- <div class="maintainance">En proceso de </div> -->
-		<header>
-			<h1>Coronavirus Bariloche</h1>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="js/plot.js"></script>
+	<link rel="stylesheet" href="css/master.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
 
-			<div id="info-container">
+<body>
+	<!-- <div class="maintainance">En proceso de </div> -->
+	<header>
+		<h1>Coronavirus Bariloche</h1>
+
+		<div id="info-container">
+			<div>
+				<h4>Fecha</h4>
 				<div>
-					<h4>Fecha</h4>
-					<div>
-						<div class="number" id="date"></div>
-						<div id="day"></div>
-					</div>
-				</div>
-				<div>
-					<h4>Casos Totales</h4>
-					<div class="number" id="total-cases"></div>
-				</div>
-				<div>
-					<h4>Activos</h4>
-					<div class="number" id="active-cases"></div>
-				</div>
-
-				<div>
-					<h4>Recuperados</h4>
-					<div class="number" id="recovered-cases"></div>
-				</div>
-				<div>
-					<h4>Muertes</h4>
-					<div class="number" id="death-cases"></div>
+					<div class="number" id="date"></div>
+					<div id="day"></div>
 				</div>
 			</div>
-		</header>
-
-		<div id="hint">
-			<p>(Los gráficos son interactivos, puede habilitar o deshabilitar cada uno de los criterios pulsando en la leyenda.)</p>
-		</div>
-
-		<div class="chart-container" id="accum-plot">
-			<h3>Casos Acumulados</h3>
-			<div class="chart" id="chartAccum"></div>
-			<button id="btn-log-scale">Ver escala logarítimica</button>
-		</div>
-
-		<div class="chart-container">
-			<h3>Casos Diarios</h3>
-			<div class="chart" id="chartDay"></div>
-		</div>
-
-		<footer>
-			<p>&copy; Michel Romero 2020</p>
-			<div class="media-share">
-				<a class="fa fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fstudentenherz.github.io%2FCoronavirusBariloche%2F" target="_blank" rel="noopener noreferrer"></a>
-
-				<a class="fa fa-twitter" href="https://twitter.com/intent/tweet?tw_p=tweetbutton&url=https://studentenherz.github.io/CoronavirusBariloche/&text=Mira los gráficos del coronavirus en Bariloche:" target="_blank" rel="noopener noreferrer"></a>
-
-				<a class="fa fa-telegram" href="https://t.me/share/url?url=https://studentenherz.github.io/CoronavirusBariloche/&text=Mira los gráficos del coronavirus en Bariloche:" target="_blank" rel="noopener noreferrer"></a>
-
-				<a class="fa fa-whatsapp" href="https://api.whatsapp.com/send?text=Mira los gráficos del coronavirus en Bariloche: https://studentenherz.github.io/CoronavirusBariloche/" data-action="share/whatsapp/share" target="_blank" rel="noopener noreferrer"></a>
+			<div>
+				<h4>Casos Totales</h4>
+				<div class="number" id="total-cases"></div>
 			</div>
-			<p>Esta página no tiene vínculo con ninguna institución oficial. Mostramos una compilación de los datos reportados en <a href="html/references.html">distintos medios de comunicación</a> sobre el COVID-19 en San Carlos de Bariloche.</p>
-			<p>¡Toda sugerencia es bienvenida! Escríbanos a barilochecoronavirus@gmail.com</p>
-			<p>Colectores de datos: Samuel Martínez Alcalá, Daniel Miravet</p>
-		</footer>
-	</body>
-	<script src="js/main.js"></script>
+			<div>
+				<h4>Activos</h4>
+				<div class="number" id="active-cases"></div>
+			</div>
+
+			<div>
+				<h4>Recuperados</h4>
+				<div class="number" id="recovered-cases"></div>
+			</div>
+			<div>
+				<h4>Muertes</h4>
+				<div class="number" id="death-cases"></div>
+			</div>
+		</div>
+	</header>
+
+	<div id="hint">
+		<p>(Los gráficos son interactivos, puede habilitar o deshabilitar cada uno de los criterios pulsando en la leyenda.)
+		</p>
+	</div>
+
+	<div class="chart-container" id="accum-plot">
+		<h3>Casos Acumulados</h3>
+		<div class="chart" id="chartAccum"></div>
+		<button id="btn-log-scale">Ver escala logarítimica</button>
+	</div>
+
+	<div class="chart-container">
+		<h3>Casos Diarios</h3>
+		<div class="chart" id="chartDay"></div>
+	</div>
+
+	<footer>
+		<div class="media-share">
+			<a class="fa fa-facebook"
+				href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fstudentenherz.github.io%2FCoronavirusBariloche%2F"
+				target="_blank" rel="noopener noreferrer"></a>
+
+			<a class="fa fa-twitter"
+				href="https://twitter.com/intent/tweet?tw_p=tweetbutton&url=https://studentenherz.github.io/CoronavirusBariloche/&text=Mira los gráficos del coronavirus en Bariloche:"
+				target="_blank" rel="noopener noreferrer"></a>
+
+			<a class="fa fa-telegram"
+				href="https://t.me/share/url?url=https://studentenherz.github.io/CoronavirusBariloche/&text=Mira los gráficos del coronavirus en Bariloche:"
+				target="_blank" rel="noopener noreferrer"></a>
+
+			<a class="fa fa-whatsapp"
+				href="https://api.whatsapp.com/send?text=Mira los gráficos del coronavirus en Bariloche: https://studentenherz.github.io/CoronavirusBariloche/"
+				data-action="share/whatsapp/share" target="_blank" rel="noopener noreferrer"></a>
+		</div>
+		<p>Esta página no tiene vínculo con ninguna institución oficial. Mostramos una compilación de los datos reportados
+			en <a href="html/references.html">distintos medios de comunicación</a> sobre el COVID-19 en San Carlos de
+			Bariloche.</p>
+		<p>¡Toda sugerencia es bienvenida! Escríbanos a barilochecoronavirus@gmail.com</p>
+		<p>Código y diseño: Michel Romero Rodríguez</p>
+		<p>Colectores de datos: Samuel Martínez Alcalá, Daniel Miravet</p>
+	</footer>
+</body>
+<script src="js/main.js"></script>
+
 </html>
