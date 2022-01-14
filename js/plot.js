@@ -837,5 +837,6 @@ const dataArray = [
 	[486, '07/31/21', 23, null, 11, null, 0, 423, null],
 	[487, '07/01/21', 36, 23639, 21, 22755, 1, 424, 460],
 	[488, '07/02/21', 37, null, 19, 22774, 1, 425, 477],
+	[681, '13/01/22', 449, 32748, 205, 28027, 0, 469, 4252],
 ];
-
+ // Día, Fecha, Nuevos, Total, Recuperados, Total Recuperados, Muertes, Total Muertes, Actiavos
